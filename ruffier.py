@@ -28,8 +28,6 @@
 тому напишемо функцію ruffier_result(r_index, level), яка отримуватиме
 розрахований індекс Руф'є та рівень "незадовільно" для віку тестованого, і віддавати результат '''
 # тут задаються рядки, за допомогою яких викладено результат:
-txt_index = "Ваш індекс Руф’є:"
-txt_workheart = "Працездатність серця:"
 txt_nodata = ''' Немає даних для такого віку '''
 txt_res = []
 txt_res.append(''' Низька. Терміново зверніться до лікаря! ''')
@@ -37,4 +35,66 @@ txt_res.append(''' Задовільна. Зверніться до лікаря!
 txt_res.append(''' Середня. Можливо, варто додатково обстежитись у лікаря. ''')
 txt_res.append(''' Вище середнього ''')
 txt_res.append(''' Висока ''')
+def rufier_ind(a,b,c):
+    return int((4*(a+b+c)-200)/10)
 
+
+def heartwork (age,ind):
+    global text_res
+    if age <7 or age>18:
+        return txt_nodata
+    if age==7 or age==8:
+        if ind<=6.4:
+            return text_res[4]
+        if ind>6.4 and ind<12:
+            return text_res[3]
+        if ind>11.9 and ind<17:
+            return text_res[2]
+        if ind>16.9 and ind<21:
+            return text_res[1]
+        if ind>20.9 :
+            return text_res[0]
+    if age==9 or age==10:
+        if ind<=6.4:
+            return text_res[4]
+        if ind>6.4 and ind<12:
+            return text_res[3]
+        if ind>11.9 and ind<17:
+            return text_res[2]
+        if ind>16.9 and ind<21:
+            return text_res[1]
+        if ind>20.9 :
+            return text_res[0]
+    if age==11 or age==12:
+        if ind<=6.4:
+            return text_res[4]
+        if ind>6.4 and ind<12:
+            return text_res[3]
+        if ind>11.9 and ind<17:
+            return text_res[2]
+        if ind>16.9 and ind<21:
+            return text_res[1]
+        if ind>20.9 :
+            return text_res[0]
+    if age==13 or age==14:
+        if ind<=6.4:
+            return text_res[4]
+        if ind>6.4 and ind<12:
+            return text_res[3]
+        if ind>11.9 and ind<17:
+            return text_res[2]
+        if ind>16.9 and ind<21:
+            return text_res[1]
+        if ind>20.9 :
+            return text_res[0]
+    if age>=15:
+        if ind<=6.4:
+            return text_res[4]
+        if ind>6.4 and ind<12:
+            return text_res[3]
+        if ind>11.9 and ind<17:
+            return text_res[2]
+        if ind>16.9 and ind<21:
+            return text_res[1]
+        if ind>20.9 :
+            return text_res[0]

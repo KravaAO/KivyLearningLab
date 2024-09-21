@@ -7,14 +7,15 @@ from kivy.uix.button import Button
 from kivy.uix.popup import Popup
 import instructions
 from instructions import *
-
+from ruffier import *
 
 name=""
+workheart=""
 age=0
 p1=0
 p2=0
 p3=0
-
+ind_rufier=0
 
 
 class InstScr(Screen):
@@ -27,7 +28,7 @@ class InstScr(Screen):
         lbl_age = Label(text="Введіть вік")
         self.age_input=TextInput(multiline=False)
 
-        line1 = BoxLayout()
+        line1 = BoxLayout(padding=20)
         line2 = BoxLayout()
         line3=BoxLayout()
         line1.add_widget(inst)
@@ -136,10 +137,12 @@ class PulseScr2(Screen):
 
         self.add_widget(outer)
     def next_page(self):
-        global p2,p3
+        global p2,p3, ind_rufier, workheart, age
         try:
             p2=int(self.input_before.text)
             p3 = int(self.input_after.text)
+            ind_rufier=rufier_ind(p1, p2, p3)
+            workheart=heartwork(age,ind_rufier)
             self.manager.transition.direction = 'left'
             self.manager.current = 'result'
         except:
@@ -149,21 +152,25 @@ class PulseScr2(Screen):
 
 class ResScr(Screen):
     def __init__(self, **kwargs):
+        global p1, p2, p3, ind_rufier, workheart
+
         super().__init__(**kwargs)
         self.lbl_res1 = Label(text=name)
-        lbl_res2 = Label(text="Ваш індекс Руф'є:")
-        lbl_res3 = Label(text="Працездатність серця:")
+        self.lbl_res2 = Label(text=str(ind_rufier))
+        self.lbl_res3 = Label(text=workheart)
 
 
         line1 = BoxLayout()
         line1 = BoxLayout(orientation='vertical')
         line1.add_widget(self.lbl_res1)
-        line1.add_widget(lbl_res2)
-        line1.add_widget(lbl_res3)
+        line1.add_widget(self.lbl_res2)
+        line1.add_widget(self.lbl_res3)
         self.on_enter=self.results
         self.add_widget(line1)
     def results(self):
         self.lbl_res1.text=name
+        self.lbl_res2.text=f"Індекс Руф'є: {str(ind_rufier)}"
+        self.lbl_res3.text=f"Працездатність серця: {workheart}"
 
 class Ruffier(App):
     def build(self):
