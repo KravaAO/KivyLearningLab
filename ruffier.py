@@ -36,65 +36,73 @@ txt_res.append(''' Середня. Можливо, варто додатково
 txt_res.append(''' Вище середнього ''')
 txt_res.append(''' Висока ''')
 def rufier_ind(a,b,c):
-    return int((4*(a+b+c)-200)/10)
+    ind=int((4 * (a + b + c) - 200) / 10)
+    if ind>0 and ind <30:
+        return ind
+    else:
+        return "Введіть правдиву інформацію"
+
 
 
 def heartwork (age,ind):
-    global text_res
+    global txt_res
     if age <7 or age>18:
         return txt_nodata
+    if ind=="Введіть правдиву інформацію":
+        return "Введіть правдиву інформацію"
     if age==7 or age==8:
         if ind<=6.4:
-            return text_res[4]
+            return txt_res[4]
         if ind>6.4 and ind<12:
-            return text_res[3]
+            return txt_res[3]
         if ind>11.9 and ind<17:
-            return text_res[2]
+            return txt_res[2]
         if ind>16.9 and ind<21:
-            return text_res[1]
+            return txt_res[1]
         if ind>20.9 :
-            return text_res[0]
+            return txt_res[0]
     if age==9 or age==10:
-        if ind<=6.4:
-            return text_res[4]
-        if ind>6.4 and ind<12:
-            return text_res[3]
-        if ind>11.9 and ind<17:
-            return text_res[2]
-        if ind>16.9 and ind<21:
-            return text_res[1]
-        if ind>20.9 :
-            return text_res[0]
+        if ind<=4.9:
+            return txt_res[4]
+        if ind>4.9 and ind<10.5:
+            return txt_res[3]
+        if ind>10.4 and ind<15.5:
+            return txt_res[2]
+        if ind>15.4 and ind<19.5:
+            return txt_res[1]
+        if ind>19.4 :
+            return txt_res[0]
     if age==11 or age==12:
-        if ind<=6.4:
-            return text_res[4]
-        if ind>6.4 and ind<12:
-            return text_res[3]
-        if ind>11.9 and ind<17:
-            return text_res[2]
-        if ind>16.9 and ind<21:
-            return text_res[1]
-        if ind>20.9 :
-            return text_res[0]
+        if ind<=3.4:
+            return txt_res[4]
+        if ind>3.4 and ind<9:
+            return txt_res[3]
+        if ind>8.9 and ind<14:
+            return txt_res[2]
+        if ind>13.9 and ind<18:
+            return txt_res[1]
+        if ind>17.9 :
+            return txt_res[0]
     if age==13 or age==14:
-        if ind<=6.4:
-            return text_res[4]
-        if ind>6.4 and ind<12:
-            return text_res[3]
-        if ind>11.9 and ind<17:
-            return text_res[2]
-        if ind>16.9 and ind<21:
-            return text_res[1]
-        if ind>20.9 :
-            return text_res[0]
+        if ind<=1.9:
+            return txt_res[4]
+        if ind>1.9 and ind<7.5:
+            return txt_res[3]
+        if ind>7.4 and ind<12.5:
+            return txt_res[2]
+        if ind>12.4 and ind<16.5:
+            return txt_res[1]
+        if ind>16.4 :
+            return txt_res[0]
     if age>=15:
-        if ind<=6.4:
-            return text_res[4]
-        if ind>6.4 and ind<12:
-            return text_res[3]
-        if ind>11.9 and ind<17:
-            return text_res[2]
-        if ind>16.9 and ind<21:
-            return text_res[1]
-        if ind>20.9 :
-            return text_res[0]
+        if ind<=0.4:
+            return txt_res[4]
+        if ind>0.4 and ind<6:
+            return txt_res[3]
+        if ind>5.9 and ind<11:
+            return txt_res[2]
+        if ind>10.9 and ind<15:
+            return txt_res[1]
+        if ind>14.9 :
+            return txt_res[0]
+
